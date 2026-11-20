@@ -25,7 +25,6 @@
 
 <body class="locked">
 
-<!-- NHẠC NỀN -->
 <audio id="bgm" src="nhac11.mp3" loop preload="auto"></audio>
 
 <!-- MÀN HÌNH CHỜ -->
@@ -34,7 +33,7 @@
   <p>Chạm vào nón để bắt đầu</p>
 </div>
 
-<!-- BACKGROUND CŨ -->
+<!-- NỀN CŨ -->
 <div class="bg"></div>
 
 <div class="mist m1"></div>
@@ -43,9 +42,9 @@
 
 <main>
 
-<!-- =====================================
+<!-- =================================
      PHẦN 1
-===================================== -->
+================================= -->
 
 <div class="page" id="part1">
 
@@ -60,8 +59,6 @@
       <span class="hint">Lướt xuống ↓</span>
     </div>
   </header>
-
-  <!-- ẢNH 1 VÀ 2 -->
 
   <section class="scene">
 
@@ -83,8 +80,6 @@
 
   </section>
 
-  <!-- ẢNH 3 -->
-
   <section class="scene solo">
 
     <figure class="rv">
@@ -96,8 +91,6 @@
     </div>
 
   </section>
-
-  <!-- ẢNH 4 -->
 
   <section class="scene solo">
 
@@ -111,8 +104,6 @@
 
   </section>
 
-  <!-- ẢNH 5 -->
-
   <section class="scene solo">
 
     <figure class="rv">
@@ -125,8 +116,6 @@
 
   </section>
 
-  <!-- NÚT TIẾP THEO -->
-
   <section class="end">
     <button class="btn glass rv" id="next" type="button">
       Tiếp theo ✨
@@ -136,9 +125,9 @@
 </div>
 
 
-<!-- =====================================
-     PHẦN 2 - GALAXY 3D
-===================================== -->
+<!-- =================================
+     PHẦN 2
+================================= -->
 
 <div class="page" id="part2" hidden>
 
@@ -146,19 +135,11 @@
 
     <canvas id="galaxy"></canvas>
 
-    <!-- TIÊU ĐỀ -->
-
     <div class="galaxy-title" id="galaxyTitle">
-
       <span>CLASS 6A2 PRESENTS</span>
-
       <h2>Our Universe</h2>
-
       <p>Một vũ trụ nhỏ dành tặng cô Mai</p>
-
     </div>
-
-    <!-- LỜI CHÚC -->
 
     <div class="galaxy-message" id="galaxyMessage">
 
@@ -180,8 +161,6 @@
 
     </div>
 
-    <!-- NÚT QUAY LẠI -->
-
     <button class="btn glass galaxy-back" id="back" type="button">
       ← Quay lại
     </button>
@@ -193,11 +172,12 @@
 </main>
 
 
-<!-- =====================================
-     JAVASCRIPT GIAO DIỆN
-===================================== -->
+<!-- =================================
+     HIỆU ỨNG GIAO DIỆN
+================================= -->
 
 <script>
+
 const bgm = document.getElementById("bgm");
 const gate = document.getElementById("gate");
 
@@ -209,10 +189,8 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
 
     if(entry.isIntersecting){
-
       entry.target.classList.add("in");
       observer.unobserve(entry.target);
-
     }
 
   });
@@ -220,6 +198,7 @@ const observer = new IntersectionObserver(entries => {
 }, {
   threshold: .2
 });
+
 
 function reveal(root){
 
@@ -262,11 +241,9 @@ function go(from, to){
   setTimeout(() => {
 
     from.hidden = true;
-
     from.classList.remove("out");
 
     to.hidden = false;
-
     to.classList.add("enter");
 
     window.scrollTo(0, 0);
@@ -299,21 +276,20 @@ document.getElementById("back").addEventListener("click", () => {
 });
 
 reveal(part1);
+
 </script>
 
 
-<!-- =====================================
-     THREE.JS
-===================================== -->
+<!-- =================================
+     THREE.JS GALAXY
+================================= -->
 
 <script type="module">
 
 import * as THREE from "three";
 
 
-/* =====================================
-   KHỞI TẠO
-===================================== */
+/* KHỞI TẠO */
 
 const canvas = document.getElementById("galaxy");
 
@@ -321,11 +297,8 @@ const scene = new THREE.Scene();
 
 scene.background = new THREE.Color(0x080719);
 
-scene.fog = new THREE.FogExp2(0x080719, 0.012);
-
-
 const camera = new THREE.PerspectiveCamera(
-  48,
+  45,
   window.innerWidth / window.innerHeight,
   0.1,
   150
@@ -340,7 +313,7 @@ const renderer = new THREE.WebGLRenderer({
   alpha: false
 });
 
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -349,36 +322,32 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 /* ÁNH SÁNG */
 
-scene.add(new THREE.AmbientLight(0xffffff, 1.4));
+scene.add(new THREE.AmbientLight(0xffffff, 1.5));
 
-const light = new THREE.PointLight(0xc5a6ff, 100, 80);
+const mainLight = new THREE.PointLight(0xc5a6ff, 100, 80);
 
-light.position.set(0, 5, 8);
+mainLight.position.set(0, 5, 8);
 
-scene.add(light);
+scene.add(mainLight);
 
 
-/* =====================================
-   NHÓM THIÊN HÀ
-===================================== */
+/* NHÓM THIÊN HÀ */
 
 const galaxy = new THREE.Group();
 
 scene.add(galaxy);
 
 
-/* =====================================
-   SAO NỀN
-===================================== */
+/* SAO NỀN */
 
 const starPositions = [];
 
-for(let i = 0; i < 2200; i++){
+for(let i = 0; i < 1800; i++){
 
   starPositions.push(
-    (Math.random() - .5) * 65,
-    (Math.random() - .5) * 45,
-    (Math.random() - .5) * 55
+    (Math.random() - .5) * 60,
+    (Math.random() - .5) * 40,
+    (Math.random() - .5) * 45
   );
 
 }
@@ -390,34 +359,33 @@ starGeometry.setAttribute(
   new THREE.Float32BufferAttribute(starPositions, 3)
 );
 
-const starMaterial = new THREE.PointsMaterial({
-  color: 0xffffff,
-  size: .045,
-  transparent: true,
-  opacity: .9
-});
-
-const stars = new THREE.Points(starGeometry, starMaterial);
+const stars = new THREE.Points(
+  starGeometry,
+  new THREE.PointsMaterial({
+    color: 0xffffff,
+    size: .045,
+    transparent: true,
+    opacity: .9
+  })
+);
 
 scene.add(stars);
 
 
-/* =====================================
-   TINH VÂN
-===================================== */
+/* TINH VÂN */
 
 const nebulaPositions = [];
 
-for(let i = 0; i < 800; i++){
+for(let i = 0; i < 700; i++){
 
   const angle = Math.random() * Math.PI * 2;
 
-  const radius = Math.random() * 13;
+  const radius = Math.random() * 12;
 
   nebulaPositions.push(
     Math.cos(angle) * radius,
     Math.sin(angle) * radius * .5,
-    (Math.random() - .5) * 5
+    (Math.random() - .5) * 4
   );
 
 }
@@ -433,7 +401,7 @@ const nebula = new THREE.Points(
   nebulaGeometry,
   new THREE.PointsMaterial({
     color: 0x9e82ff,
-    size: .075,
+    size: .07,
     transparent: true,
     opacity: .55
   })
@@ -442,68 +410,71 @@ const nebula = new THREE.Points(
 galaxy.add(nebula);
 
 
-/* =====================================
+/* =================================
    HÀNH TINH
-===================================== */
+================================= */
 
 const planetGroup = new THREE.Group();
 
 galaxy.add(planetGroup);
 
-
-const planetGeometry = new THREE.SphereGeometry(1.8, 64, 64);
-
-const planetMaterial = new THREE.MeshStandardMaterial({
-  color: 0x8061c9,
-  roughness: .65,
-  metalness: .15,
-  transparent: true,
-  opacity: 0
-});
-
 const planet = new THREE.Mesh(
-  planetGeometry,
-  planetMaterial
+  new THREE.SphereGeometry(1.65, 64, 64),
+
+  new THREE.MeshStandardMaterial({
+    color: 0x8061c9,
+    roughness: .55,
+    metalness: .2,
+    transparent: true,
+    opacity: 0
+  })
 );
+
+planet.renderOrder = 1;
 
 planetGroup.add(planet);
 
 
-/* VÂN HÀNH TINH */
+const planetGlow = new THREE.Mesh(
+  new THREE.SphereGeometry(1.7, 48, 48),
 
-const surface = new THREE.Mesh(
-  new THREE.SphereGeometry(1.82, 48, 48),
   new THREE.MeshBasicMaterial({
-    color: 0xc5a6ff,
+    color: 0xc6a6ff,
     wireframe: true,
     transparent: true,
     opacity: 0
   })
 );
 
-planetGroup.add(surface);
+planetGlow.renderOrder = 2;
+
+planetGroup.add(planetGlow);
 
 
 /* VÀNH ĐAI */
 
 const ring = new THREE.Mesh(
-  new THREE.RingGeometry(2.35, 3.25, 128),
+  new THREE.RingGeometry(2.2, 3.1, 128),
+
   new THREE.MeshBasicMaterial({
     color: 0xe5c6ff,
     side: THREE.DoubleSide,
     transparent: true,
-    opacity: 0
+    opacity: 0,
+    depthWrite: false
   })
 );
 
-ring.rotation.x = Math.PI * .34;
+ring.rotation.x = Math.PI * .32;
+
+ring.renderOrder = 3;
 
 planetGroup.add(ring);
 
 
-/* =====================================
-   TEXTURE
-===================================== */
+/* =================================
+   TEXTURE ẢNH
+================================= */
 
 const loader = new THREE.TextureLoader();
 
@@ -515,17 +486,14 @@ function loadTexture(path){
       path,
 
       texture => {
-
         texture.colorSpace = THREE.SRGBColorSpace;
-
         resolve(texture);
-
       },
 
       undefined,
 
       () => {
-        console.warn("Không tải được ảnh:", path);
+        console.warn("Không tìm thấy ảnh:", path);
         resolve(null);
       }
     );
@@ -535,9 +503,9 @@ function loadTexture(path){
 }
 
 
-/* =====================================
+/* =================================
    ĐIỆN THOẠI
-===================================== */
+================================= */
 
 let phone = null;
 
@@ -548,10 +516,487 @@ loadTexture("anh1.png").then(texture => {
   const material = new THREE.MeshBasicMaterial({
     map: texture,
     transparent: true,
-    side: THREE.DoubleSide
+    side: THREE.DoubleSide,
+    depthTest: false,
+    depthWrite: false
   });
 
   phone = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.1, 3.5),
+    material
+  );
+
+  phone.position.set(0, 0, 4);
+
+  phone.renderOrder = 20;
+
+  galaxy.add(phone);
+
+});
+
+
+/* =================================
+   10 ẢNH QUAY QUANH
+================================= */
+
+const photoGroup = new THREE.Group();
+
+galaxy.add(photoGroup);
+
+const photos = [];
+
+const mobile = window.innerWidth < 600;
+
+const orbitX = mobile ? 4.3 : 5.5;
+const orbitY = mobile ? 2.7 : 3.3;
+
+for(let i = 0; i < 10; i++){
+
+  loadTexture("anh" + (i + 2) + ".png").then(texture => {
+
+    if(!texture) return;
+
+    const material = new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: true,
+      side: THREE.DoubleSide,
+
+      /* ẢNH LUÔN Ở TRƯỚC HÀNH TINH */
+      depthTest: false,
+      depthWrite: false
+    });
+
+    const mesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.25, 1.65),
+      material
+    );
+
+    mesh.userData.angle = i * Math.PI * 2 / 10;
+
+    mesh.userData.index = i;
+
+    mesh.position.set(0, 0, 5);
+
+    mesh.scale.setScalar(0);
+
+    /* Render ảnh sau hành tinh */
+    mesh.renderOrder = 30;
+
+    photoGroup.add(mesh);
+
+    photos.push(mesh);
+
+  });
+
+}
+
+
+/* =================================
+   HỘP QUÀ
+================================= */
+
+const gift = new THREE.Group();
+
+galaxy.add(gift);
+
+const giftMaterial = new THREE.MeshStandardMaterial({
+  color: 0xa87be8,
+  roughness: .3,
+  metalness: .25
+});
+
+const ribbonMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffd5eb,
+  metalness: .2
+});
+
+
+const box = new THREE.Mesh(
+  new THREE.BoxGeometry(1.6, 1.25, 1.35),
+  giftMaterial
+);
+
+gift.add(box);
+
+
+const ribbon1 = new THREE.Mesh(
+  new THREE.BoxGeometry(1.7, .18, 1.45),
+  ribbonMaterial
+);
+
+const ribbon2 = new THREE.Mesh(
+  new THREE.BoxGeometry(.2, 1.3, 1.45),
+  ribbonMaterial
+);
+
+gift.add(ribbon1, ribbon2);
+
+
+const bow1 = new THREE.Mesh(
+  new THREE.TorusGeometry(.3, .08, 12, 32),
+  ribbonMaterial
+);
+
+const bow2 = bow1.clone();
+
+bow1.position.set(-.2, .72, 0);
+
+bow2.position.set(.2, .72, 0);
+
+bow1.rotation.z = .7;
+
+bow2.rotation.z = -2.4;
+
+gift.add(bow1, bow2);
+
+gift.position.set(0, -10, 4);
+
+gift.scale.setScalar(0);
+
+gift.traverse(object => {
+  if(object.isMesh){
+    object.material.depthTest = false;
+    object.renderOrder = 40;
+  }
+});
+
+
+/* =================================
+   HẠT SÁNG
+================================= */
+
+const particleCount = 500;
+
+const particlePositions = [];
+
+const particleTargets = [];
+
+for(let i = 0; i < particleCount; i++){
+
+  particlePositions.push(
+    (Math.random() - .5) * 16,
+    (Math.random() - .5) * 12,
+    4
+  );
+
+  const angle = Math.random() * Math.PI * 2;
+
+  const radius = Math.random() * 1.1;
+
+  particleTargets.push(
+    Math.cos(angle) * radius,
+    Math.sin(angle) * radius,
+    4
+  );
+
+}
+
+const particleGeometry = new THREE.BufferGeometry();
+
+particleGeometry.setAttribute(
+  "position",
+  new THREE.Float32BufferAttribute(particlePositions, 3)
+);
+
+const particleMaterial = new THREE.PointsMaterial({
+  color: 0xffe5ff,
+  size: .075,
+  transparent: true,
+  opacity: 0,
+  depthTest: false
+});
+
+const particles = new THREE.Points(
+  particleGeometry,
+  particleMaterial
+);
+
+particles.renderOrder = 35;
+
+galaxy.add(particles);
+
+
+/* =================================
+   TRẠNG THÁI ANIMATION
+================================= */
+
+let running = false;
+
+let animationId = null;
+
+let startTime = 0;
+
+let elapsed = 0;
+
+let completed = false;
+
+const title = document.getElementById("galaxyTitle");
+
+const message = document.getElementById("galaxyMessage");
+
+
+function resetGalaxy(){
+
+  message.classList.remove("show");
+
+  title.style.opacity = 1;
+
+  title.style.transform = "translateX(-50%)";
+
+  planet.material.opacity = 0;
+
+  planetGlow.material.opacity = 0;
+
+  ring.material.opacity = 0;
+
+  planet.scale.setScalar(1);
+
+  planetGlow.scale.setScalar(1);
+
+  ring.scale.setScalar(1);
+
+  gift.position.set(0, -10, 4);
+
+  gift.scale.setScalar(0);
+
+  particleMaterial.opacity = 0;
+
+  photos.forEach(mesh => {
+
+    mesh.scale.setScalar(0);
+
+    mesh.material.opacity = 0;
+
+  });
+
+  if(phone){
+    phone.material.opacity = 1;
+  }
+
+}
+
+
+function startGalaxy(){
+
+  if(running) return;
+
+  if(completed){
+
+    elapsed = 0;
+
+    completed = false;
+
+    resetGalaxy();
+
+  }
+
+  running = true;
+
+  startTime = performance.now() - elapsed * 1000;
+
+  animate();
+
+}
+
+
+function stopGalaxy(){
+
+  running = false;
+
+  if(animationId){
+    cancelAnimationFrame(animationId);
+  }
+
+  animationId = null;
+
+}
+
+
+window.startGalaxy = startGalaxy;
+
+window.stopGalaxy = stopGalaxy;
+
+
+/* =================================
+   ANIMATION CHÍNH
+================================= */
+
+function animate(){
+
+  if(!running) return;
+
+  animationId = requestAnimationFrame(animate);
+
+  const time = (performance.now() - startTime) / 1000;
+
+
+  /* SAO NỀN */
+
+  stars.rotation.y += .0002;
+
+  nebula.rotation.z += .0004;
+
+
+  /* ĐIỆN THOẠI */
+
+  if(phone){
+
+    const fade = 1 - THREE.MathUtils.smoothstep(time, 3, 6);
+
+    phone.material.opacity = fade;
+
+    phone.position.y = Math.sin(time * 1.5) * .18;
+
+    phone.rotation.y = Math.sin(time * .7) * .25;
+
+    phone.rotation.z = Math.sin(time) * .05;
+
+    phone.scale.setScalar(1 + Math.sin(time * 1.5) * .035);
+
+  }
+
+
+  /* HÀNH TINH */
+
+  const planetFade = THREE.MathUtils.smoothstep(time, 4, 8);
+
+  planet.material.opacity = planetFade;
+
+  planetGlow.material.opacity = planetFade * .15;
+
+  ring.material.opacity = planetFade * .85;
+
+  planet.rotation.y += .003;
+
+  planetGlow.rotation.y -= .002;
+
+  ring.rotation.z += .001;
+
+
+  /* ẢNH QUAY QUANH HÀNH TINH */
+
+  photos.forEach(mesh => {
+
+    const angle = mesh.userData.angle + time * .22;
+
+    const x = Math.cos(angle) * orbitX;
+
+    const y = Math.sin(angle) * orbitY;
+
+    /* Z luôn ở phía trước hành tinh */
+
+    const z = 4.5 + Math.sin(angle) * .25;
+
+    mesh.position.set(x, y, z);
+
+    mesh.lookAt(camera.position);
+
+    const appear = THREE.MathUtils.smoothstep(time, 5, 8);
+
+    mesh.scale.setScalar(appear);
+
+    mesh.material.opacity = appear;
+
+  });
+
+
+  /* TIÊU ĐỀ */
+
+  if(time > 5){
+
+    const fade = 1 - THREE.MathUtils.smoothstep(time, 5, 7);
+
+    title.style.opacity = fade;
+
+    title.style.transform =
+      `translate(-50%, ${-50 - (1 - fade) * 35}px)`;
+
+  }
+
+
+  /* ẢNH HỘI TỤ */
+
+  if(time > 11){
+
+    const progress = THREE.MathUtils.smoothstep(time, 11, 14);
+
+    photos.forEach(mesh => {
+
+      mesh.position.lerp(
+        new THREE.Vector3(0, 0, 4),
+        .035 * progress
+      );
+
+      mesh.scale.setScalar(1 - progress);
+
+    });
+
+    planet.scale.setScalar(1 - progress * .85);
+
+    planetGlow.scale.setScalar(1 - progress * .85);
+
+    ring.scale.setScalar(1 - progress * .85);
+
+    particleMaterial.opacity = progress;
+
+    particles.rotation.z += .008;
+
+  }
+
+
+  /* HỘP QUÀ */
+
+  if(time > 14){
+
+    const progress = THREE.MathUtils.smoothstep(time, 14, 16);
+
+    gift.position.y = -3 + progress * 3;
+
+    gift.scale.setScalar(progress);
+
+    gift.rotation.y += .008;
+
+  }
+
+
+  /* LỜI CHÚC */
+
+  if(time > 16 && !completed){
+
+    message.classList.add("show");
+
+    completed = true;
+
+  }
+
+
+  renderer.render(scene, camera);
+
+}
+
+
+/* =================================
+   RESIZE
+================================= */
+
+function resize(){
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+
+  camera.updateProjectionMatrix();
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+}
+
+window.addEventListener("resize", resize);
+
+</script>
+
+</body>
+</html>
     new THREE.PlaneGeometry(1.8, 3.2),
     material
   );
