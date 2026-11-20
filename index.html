@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lớp 6A2 chúc cô Mai 20/11</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnamese+Pro:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<audio id="bgm" src="nhac11.mp3" loop preload="auto"></audio>
+<div class="gate" id="gate">
+  <button class="cap-btn" id="enter" type="button" aria-label="Bấm vào nón để vào">🎓</button>
+  <p>Chạm vào nón để bắt đầu</p>
+</div>
+<div class="bg"></div>
+<div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div>
+
+<main>
+<div class="page" id="part1">
+<!-- HEADER -->
+<header class="hero">
+  <div class="glass rv">
+    <h1>Tập thể lớp 6A2 chúc cô Mai 20/11</h1>
+    <p>Lướt xuống để xem hành trình của cô</p>
+    <span class="hint">Lướt xuống ↓</span>
+  </div>
+</header>
+
+<!-- ẢNH 1 & 2 -->
+<section class="scene">
+  <div class="photos">
+    <figure class="rv"><img src="anhcomai1.png" alt="Cô Mai ngày tốt nghiệp đại học"></figure>
+    <figure class="rv d2"><img src="anhcomai2.png" alt="Cô Mai nhận bằng thạc sĩ"></figure>
+  </div>
+  <div class="glass cap rv d3"><h2>Từ những ngày đầu tiên khi bước vào nghề Nhà giáo</h2></div>
+</section>
+
+<!-- ẢNH 3 -->
+<section class="scene solo">
+  <figure class="rv"><img src="anhcomai3.png" alt="Cô Mai cầm chong chóng"></figure>
+  <div class="glass cap rv d2"><h2>Đến thế này</h2></div>
+</section>
+
+<!-- ẢNH 4 -->
+<section class="scene solo">
+  <figure class="rv"><img src="anhcomai4.png" alt="Cô Mai và học sinh bên bánh kem"></figure>
+  <div class="glass cap rv d2"><h2>Càng ngày càng nhiều kỉ niệm</h2></div>
+</section>
+
+<!-- ẢNH 5 -->
+<section class="scene solo">
+  <figure class="rv"><img src="anhcomai5.png" alt="Cô Mai trong tà áo dài vàng"></figure>
+  <div class="glass cap rv d2"><h2>Cho đến khi chúng em xuất hiện</h2></div>
+</section>
+
+<!-- NÚT TIẾP THEO -->
+<section class="end">
+  <button class="btn glass rv" id="next" type="button">Tiếp theo</button>
+</section>
+</div>
+
+<!-- ===== PHẦN 2 (cùng file, hiện khi bấm Tiếp theo) ===== -->
+<div class="page" id="part2" hidden>
+  <section class="end">
+    <div class="glass cap rv" style="margin-top:0"><h2>Phần 2 sắp ra mắt…</h2></div>
+    <button class="btn glass rv" id="back" type="button" style="margin-top:20px">← Quay lại</button>
+  </section>
+</div>
+</main>
+
+<script>
+var bgm=document.getElementById('bgm'),gate=document.getElementById('gate');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
+function reveal(root){root.querySelectorAll('.rv:not(.in)').forEach(function(el){io.observe(el)})}
+document.getElementById('enter').addEventListener('click',function(){
+  bgm.play().catch(function(){});
+  gate.classList.add('open');
+  document.body.classList.remove('locked');
+  window.scrollTo(0,0);
+  setTimeout(function(){gate.remove()},1200);
+  reveal(document.getElementById('part1'));
+});
+// chuyển trang trong cùng 1 file (nhạc không bị ngắt)
+function go(from,to){
+  from.classList.add('out');
+  setTimeout(function(){
+    from.hidden=true;from.classList.remove('out');
+    to.hidden=false;to.classList.add('enter');
+    window.scrollTo(0,0);
+    reveal(to);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){to.classList.remove('enter')})});
+  },700);
+}
+var p1=document.getElementById('part1'),p2=document.getElementById('part2');
+document.getElementById('next').addEventListener('click',function(){go(p1,p2)});
+document.getElementById('back').addEventListener('click',function(){go(p2,p1)});
+</script>
+</body>
+  </html>
+  
