@@ -4,1470 +4,250 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#d9e6f5">
-
 <title>Lớp 6A2 chúc cô Mai 20/11</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
-
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js"
-  }
-}
-</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js"}}</script>
 </head>
-
 <body class="locked">
-
 <audio id="bgm" src="nhac11.mp3" loop preload="auto"></audio>
 
-<!-- MÀN HÌNH CHỜ -->
 <div class="gate" id="gate">
-  <button class="cap-btn" id="enter" type="button">🎓</button>
+  <button class="cap-btn" id="enter" type="button" aria-label="Chạm vào nón để bắt đầu">🎓</button>
   <p>Chạm vào nón để bắt đầu</p>
 </div>
 
-<!-- NỀN CŨ -->
 <div class="bg"></div>
-
-<div class="mist m1"></div>
-<div class="mist m2"></div>
-<div class="mist m3"></div>
+<div class="mist m1"></div><div class="mist m2"></div><div class="mist m3"></div>
 
 <main>
-
-<!-- =================================
-     PHẦN 1
-================================= -->
-
+<!-- ============ PHẦN 1 ============ -->
 <div class="page" id="part1">
-
   <header class="hero">
     <div class="glass hero-card rv">
-      <span class="eyebrow">HAPPY VIETNAMESE TEACHERS' DAY</span>
-
+      <span class="eyebrow">HAPPY VIETNAMESE TEACHERS’ DAY</span>
       <h1>Tập thể lớp 6A2 chúc cô Mai 20/11</h1>
-
       <p>Lướt xuống để xem hành trình của cô</p>
-
       <span class="hint">Lướt xuống ↓</span>
     </div>
   </header>
 
   <section class="scene">
-
     <div class="photos">
-
-      <figure class="rv">
-        <img src="anhcomai1.png" alt="Cô Mai ngày tốt nghiệp đại học">
-      </figure>
-
-      <figure class="rv d2">
-        <img src="anhcomai2.png" alt="Cô Mai nhận bằng thạc sĩ">
-      </figure>
-
+      <figure class="rv"><img src="anhcomai1.png" alt="Cô Mai ngày tốt nghiệp đại học"></figure>
+      <figure class="rv d2"><img src="anhcomai2.png" alt="Cô Mai nhận bằng thạc sĩ"></figure>
     </div>
-
-    <div class="glass cap rv d3">
-      <h2>Từ những ngày đầu tiên khi bước vào nghề Nhà giáo</h2>
-    </div>
-
+    <div class="glass cap rv d3"><h2>Từ những ngày đầu tiên khi bước vào nghề Nhà giáo</h2></div>
   </section>
 
   <section class="scene solo">
-
-    <figure class="rv">
-      <img src="anhcomai3.png" alt="Cô Mai cầm chong chóng">
-    </figure>
-
-    <div class="glass cap rv d2">
-      <h2>Đến thế này</h2>
-    </div>
-
+    <figure class="rv"><img src="anhcomai3.png" alt="Cô Mai cầm chong chóng"></figure>
+    <div class="glass cap rv d2"><h2>Đến thế này</h2></div>
   </section>
 
   <section class="scene solo">
-
-    <figure class="rv">
-      <img src="anhcomai4.png" alt="Cô Mai và học sinh bên bánh kem">
-    </figure>
-
-    <div class="glass cap rv d2">
-      <h2>Càng ngày càng nhiều kỉ niệm</h2>
-    </div>
-
+    <figure class="rv"><img src="anhcomai4.png" alt="Cô Mai và học sinh bên bánh kem"></figure>
+    <div class="glass cap rv d2"><h2>Càng ngày càng nhiều kỉ niệm</h2></div>
   </section>
 
   <section class="scene solo">
-
-    <figure class="rv">
-      <img src="anhcomai5.png" alt="Cô Mai trong tà áo dài vàng">
-    </figure>
-
-    <div class="glass cap rv d2">
-      <h2>Cho đến khi chúng em xuất hiện</h2>
-    </div>
-
+    <figure class="rv"><img src="anhcomai5.png" alt="Cô Mai trong tà áo dài vàng"></figure>
+    <div class="glass cap rv d2"><h2>Cho đến khi chúng em xuất hiện</h2></div>
   </section>
 
   <section class="end">
-    <button class="btn glass rv" id="next" type="button">
-      Tiếp theo ✨
-    </button>
+    <button class="btn glass rv" id="next" type="button">Tiếp theo ✨</button>
   </section>
-
 </div>
 
-
-<!-- =================================
-     PHẦN 2
-================================= -->
-
+<!-- ============ PHẦN 2: GALAXY ============ -->
 <div class="page" id="part2" hidden>
-
   <section class="galaxy-section">
-
     <canvas id="galaxy"></canvas>
 
-    <div class="galaxy-title" id="galaxyTitle">
+    <div class="galaxy-title" id="gTitle">
       <span>CLASS 6A2 PRESENTS</span>
       <h2>Our Universe</h2>
       <p>Một vũ trụ nhỏ dành tặng cô Mai</p>
     </div>
 
-    <div class="galaxy-message" id="galaxyMessage">
-
+    <div class="galaxy-message" id="gMsg">
       <div class="gift-icon">🎁</div>
-
       <span class="message-label">20 · 11 · 2026</span>
-
       <h2>Chúc mừng ngày Nhà giáo Việt Nam!</h2>
-
-      <p>
-        Cảm ơn cô Mai vì đã luôn yêu thương,
-        dìu dắt và đồng hành cùng chúng em.
-        <br><br>
-        Chúc cô luôn mạnh khỏe, hạnh phúc
-        và giữ mãi ngọn lửa nhiệt huyết với nghề.
-      </p>
-
+      <p>Cảm ơn cô Mai vì đã luôn yêu thương, dìu dắt và đồng hành cùng chúng em.<br><br>Chúc cô luôn mạnh khỏe, hạnh phúc và giữ mãi ngọn lửa nhiệt huyết với nghề.</p>
       <strong>TẬP THỂ LỚP 6A2 ❤️</strong>
-
+      <button class="btn glass g-replay" id="replay" type="button">↻ Xem lại</button>
     </div>
 
-    <button class="btn glass galaxy-back" id="back" type="button">
-      ← Quay lại
-    </button>
-
+    <button class="btn glass g-back" id="back" type="button" aria-label="Quay lại">←</button>
+    <button class="btn glass g-next" id="gNext" type="button" hidden>Tiếp theo ✨</button>
   </section>
-
 </div>
-
 </main>
 
-
-<!-- =================================
-     HIỆU ỨNG GIAO DIỆN
-================================= -->
-
 <script>
+var $=function(id){return document.getElementById(id)};
+var bgm=$("bgm"),gate=$("gate"),part1=$("part1"),part2=$("part2");
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.2});
+function reveal(root){root.querySelectorAll(".rv:not(.in)").forEach(function(el){io.observe(el)})}
 
-const bgm = document.getElementById("bgm");
-const gate = document.getElementById("gate");
-
-const part1 = document.getElementById("part1");
-const part2 = document.getElementById("part2");
-
-const observer = new IntersectionObserver(entries => {
-
-  entries.forEach(entry => {
-
-    if(entry.isIntersecting){
-      entry.target.classList.add("in");
-      observer.unobserve(entry.target);
-    }
-
-  });
-
-}, {
-  threshold: .2
-});
-
-
-function reveal(root){
-
-  root.querySelectorAll(".rv:not(.in)").forEach(el => {
-    observer.observe(el);
-  });
-
-}
-
-
-/* BẮT ĐẦU */
-
-document.getElementById("enter").addEventListener("click", () => {
-
-  bgm.play().catch(() => {});
-
+$("enter").addEventListener("click",function(){
+  bgm.play().catch(function(){});
   gate.classList.add("open");
-
   document.body.classList.remove("locked");
-
-  window.scrollTo(0, 0);
-
-  setTimeout(() => gate.remove(), 1200);
-
+  window.scrollTo(0,0);
+  setTimeout(function(){gate.remove()},1200);
   reveal(part1);
-
 });
 
-
-/* CHUYỂN TRANG */
-
-function go(from, to){
-
-  if(from === part2 && window.stopGalaxy){
-    window.stopGalaxy();
-  }
-
+function go(from,to){
+  if(from===part2&&window.stopGalaxy)window.stopGalaxy();
   from.classList.add("out");
-
-  setTimeout(() => {
-
-    from.hidden = true;
-    from.classList.remove("out");
-
-    to.hidden = false;
-    to.classList.add("enter");
-
-    window.scrollTo(0, 0);
-
+  setTimeout(function(){
+    from.hidden=true;from.classList.remove("out");
+    to.hidden=false;to.classList.add("enter");
+    window.scrollTo(0,0);
     reveal(to);
-
-    if(to === part2 && window.startGalaxy){
-      window.startGalaxy();
-    }
-
-    requestAnimationFrame(() => {
-
-      requestAnimationFrame(() => {
-        to.classList.remove("enter");
-      });
-
-    });
-
-  }, 700);
-
+    if(to===part2&&window.startGalaxy)window.startGalaxy();
+    requestAnimationFrame(function(){requestAnimationFrame(function(){to.classList.remove("enter")})});
+  },700);
 }
-
-
-document.getElementById("next").addEventListener("click", () => {
-  go(part1, part2);
-});
-
-document.getElementById("back").addEventListener("click", () => {
-  go(part2, part1);
-});
-
+$("next").addEventListener("click",function(){go(part1,part2)});
+$("back").addEventListener("click",function(){go(part2,part1)});
+$("gNext").addEventListener("click",function(){window.showWish&&window.showWish()});
+$("replay").addEventListener("click",function(){window.stopGalaxy();window.startGalaxy()});
 reveal(part1);
-
 </script>
-
-
-<!-- =================================
-     THREE.JS GALAXY
-================================= -->
 
 <script type="module">
-
 import * as THREE from "three";
+const $=id=>document.getElementById(id);
+const canvas=$("galaxy"),title=$("gTitle"),msg=$("gMsg"),nextBtn=$("gNext");
+const small=innerWidth<700;
 
+const renderer=new THREE.WebGLRenderer({canvas,antialias:!small,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,small?1.5:2));
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(45,1,.1,100);camera.position.z=18;
+scene.add(new THREE.AmbientLight(0xffffff,1.3));
+const sun=new THREE.DirectionalLight(0xffffff,1.6);sun.position.set(3,6,8);scene.add(sun);
 
-/* KHỞI TẠO */
+/* sprite phát sáng */
+const glow=(()=>{const c=document.createElement("canvas");c.width=c.height=64;const g=c.getContext("2d");
+  const r=g.createRadialGradient(32,32,0,32,32,32);
+  r.addColorStop(0,"rgba(255,255,255,1)");r.addColorStop(.3,"rgba(255,255,255,.75)");r.addColorStop(1,"rgba(255,255,255,0)");
+  g.fillStyle=r;g.fillRect(0,0,64,64);return new THREE.CanvasTexture(c)})();
+const additive={map:glow,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending};
 
-const canvas = document.getElementById("galaxy");
+/* sao nền */
+{const n=small?500:900,p=new Float32Array(n*3);
+ for(let i=0;i<n;i++){p[i*3]=(Math.random()-.5)*60;p[i*3+1]=(Math.random()-.5)*50;p[i*3+2]=-8-Math.random()*20}
+ const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.BufferAttribute(p,3));
+ scene.add(new THREE.Points(g,new THREE.PointsMaterial({...additive,size:.22,color:0xffffff,opacity:.7})))}
 
-const scene = new THREE.Scene();
-
-scene.background = new THREE.Color(0x080719);
-
-const camera = new THREE.PerspectiveCamera(
-  45,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  150
-);
-
-camera.position.set(0, 0, 18);
-
-
-const renderer = new THREE.WebGLRenderer({
-  canvas,
-  antialias: true,
-  alpha: false
-});
-
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-
-/* ÁNH SÁNG */
-
-scene.add(new THREE.AmbientLight(0xffffff, 1.5));
-
-const mainLight = new THREE.PointLight(0xc5a6ff, 100, 80);
-
-mainLight.position.set(0, 5, 8);
-
-scene.add(mainLight);
-
-
-/* NHÓM THIÊN HÀ */
-
-const galaxy = new THREE.Group();
-
-scene.add(galaxy);
-
-
-/* SAO NỀN */
-
-const starPositions = [];
-
-for(let i = 0; i < 1800; i++){
-
-  starPositions.push(
-    (Math.random() - .5) * 60,
-    (Math.random() - .5) * 40,
-    (Math.random() - .5) * 45
-  );
-
+/* thiên hà xoắn ốc */
+const galaxy=new THREE.Group();galaxy.rotation.x=1.05;scene.add(galaxy);
+const N=small?2800:6000,gp=new Float32Array(N*3),gc=new Float32Array(N*3);
+const cIn=new THREE.Color("#ffd7f0"),cOut=new THREE.Color("#7aa8ff"),tmp=new THREE.Color();
+for(let i=0;i<N;i++){
+  const r=Math.pow(Math.random(),1.5)*6.6+.15,a=(i%3)*Math.PI*2/3+r*.85+(Math.random()-.5)*.7;
+  gp[i*3]=Math.cos(a)*r+(Math.random()-.5)*.3;
+  gp[i*3+1]=(Math.random()-.5)*.35*(1.3-r/7);
+  gp[i*3+2]=Math.sin(a)*r+(Math.random()-.5)*.3;
+  tmp.copy(cIn).lerp(cOut,r/6.8).multiplyScalar(.6+Math.random()*.6);
+  gc.set([tmp.r,tmp.g,tmp.b],i*3);
 }
-
-const starGeometry = new THREE.BufferGeometry();
-
-starGeometry.setAttribute(
-  "position",
-  new THREE.Float32BufferAttribute(starPositions, 3)
-);
-
-const stars = new THREE.Points(
-  starGeometry,
-  new THREE.PointsMaterial({
-    color: 0xffffff,
-    size: .045,
-    transparent: true,
-    opacity: .9
-  })
-);
-
-scene.add(stars);
-
-
-/* TINH VÂN */
-
-const nebulaPositions = [];
-
-for(let i = 0; i < 700; i++){
-
-  const angle = Math.random() * Math.PI * 2;
-
-  const radius = Math.random() * 12;
-
-  nebulaPositions.push(
-    Math.cos(angle) * radius,
-    Math.sin(angle) * radius * .5,
-    (Math.random() - .5) * 4
-  );
-
-}
-
-const nebulaGeometry = new THREE.BufferGeometry();
-
-nebulaGeometry.setAttribute(
-  "position",
-  new THREE.Float32BufferAttribute(nebulaPositions, 3)
-);
-
-const nebula = new THREE.Points(
-  nebulaGeometry,
-  new THREE.PointsMaterial({
-    color: 0x9e82ff,
-    size: .07,
-    transparent: true,
-    opacity: .55
-  })
-);
-
-galaxy.add(nebula);
-
-
-/* =================================
-   HÀNH TINH
-================================= */
-
-const planetGroup = new THREE.Group();
-
-galaxy.add(planetGroup);
-
-const planet = new THREE.Mesh(
-  new THREE.SphereGeometry(1.65, 64, 64),
-
-  new THREE.MeshStandardMaterial({
-    color: 0x8061c9,
-    roughness: .55,
-    metalness: .2,
-    transparent: true,
-    opacity: 0
-  })
-);
-
-planet.renderOrder = 1;
-
-planetGroup.add(planet);
-
-
-const planetGlow = new THREE.Mesh(
-  new THREE.SphereGeometry(1.7, 48, 48),
-
-  new THREE.MeshBasicMaterial({
-    color: 0xc6a6ff,
-    wireframe: true,
-    transparent: true,
-    opacity: 0
-  })
-);
-
-planetGlow.renderOrder = 2;
-
-planetGroup.add(planetGlow);
-
-
-/* VÀNH ĐAI */
-
-const ring = new THREE.Mesh(
-  new THREE.RingGeometry(2.2, 3.1, 128),
-
-  new THREE.MeshBasicMaterial({
-    color: 0xe5c6ff,
-    side: THREE.DoubleSide,
-    transparent: true,
-    opacity: 0,
-    depthWrite: false
-  })
-);
-
-ring.rotation.x = Math.PI * .32;
-
-ring.renderOrder = 3;
-
-planetGroup.add(ring);
-
-
-/* =================================
-   TEXTURE ẢNH
-================================= */
-
-const loader = new THREE.TextureLoader();
-
-function loadTexture(path){
-
-  return new Promise(resolve => {
-
-    loader.load(
-      path,
-
-      texture => {
-        texture.colorSpace = THREE.SRGBColorSpace;
-        resolve(texture);
-      },
-
-      undefined,
-
-      () => {
-        console.warn("Không tìm thấy ảnh:", path);
-        resolve(null);
-      }
-    );
-
-  });
-
-}
-
-
-/* =================================
-   ĐIỆN THOẠI
-================================= */
-
-let phone = null;
-
-loadTexture("anh1.png").then(texture => {
-
-  if(!texture) return;
-
-  const material = new THREE.MeshBasicMaterial({
-    map: texture,
-    transparent: true,
-    side: THREE.DoubleSide,
-    depthTest: false,
-    depthWrite: false
-  });
-
-  phone = new THREE.Mesh(
-    new THREE.PlaneGeometry(2.1, 3.5),
-    material
-  );
-
-  phone.position.set(0, 0, 4);
-
-  phone.renderOrder = 20;
-
-  galaxy.add(phone);
-
-});
-
-
-/* =================================
-   10 ẢNH QUAY QUANH
-================================= */
-
-const photoGroup = new THREE.Group();
-
-galaxy.add(photoGroup);
-
-const photos = [];
-
-const mobile = window.innerWidth < 600;
-
-const orbitX = mobile ? 4.3 : 5.5;
-const orbitY = mobile ? 2.7 : 3.3;
-
-for(let i = 0; i < 10; i++){
-
-  loadTexture("anh" + (i + 2) + ".png").then(texture => {
-
-    if(!texture) return;
-
-    const material = new THREE.MeshBasicMaterial({
-      map: texture,
-      transparent: true,
-      side: THREE.DoubleSide,
-
-      /* ẢNH LUÔN Ở TRƯỚC HÀNH TINH */
-      depthTest: false,
-      depthWrite: false
-    });
-
-    const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(1.25, 1.65),
-      material
-    );
-
-    mesh.userData.angle = i * Math.PI * 2 / 10;
-
-    mesh.userData.index = i;
-
-    mesh.position.set(0, 0, 5);
-
-    mesh.scale.setScalar(0);
-
-    /* Render ảnh sau hành tinh */
-    mesh.renderOrder = 30;
-
-    photoGroup.add(mesh);
-
-    photos.push(mesh);
-
-  });
-
-}
-
-
-/* =================================
-   HỘP QUÀ
-================================= */
-
-const gift = new THREE.Group();
-
-galaxy.add(gift);
-
-const giftMaterial = new THREE.MeshStandardMaterial({
-  color: 0xa87be8,
-  roughness: .3,
-  metalness: .25
-});
-
-const ribbonMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffd5eb,
-  metalness: .2
-});
-
-
-const box = new THREE.Mesh(
-  new THREE.BoxGeometry(1.6, 1.25, 1.35),
-  giftMaterial
-);
-
-gift.add(box);
-
-
-const ribbon1 = new THREE.Mesh(
-  new THREE.BoxGeometry(1.7, .18, 1.45),
-  ribbonMaterial
-);
-
-const ribbon2 = new THREE.Mesh(
-  new THREE.BoxGeometry(.2, 1.3, 1.45),
-  ribbonMaterial
-);
-
-gift.add(ribbon1, ribbon2);
-
-
-const bow1 = new THREE.Mesh(
-  new THREE.TorusGeometry(.3, .08, 12, 32),
-  ribbonMaterial
-);
-
-const bow2 = bow1.clone();
-
-bow1.position.set(-.2, .72, 0);
-
-bow2.position.set(.2, .72, 0);
-
-bow1.rotation.z = .7;
-
-bow2.rotation.z = -2.4;
-
-gift.add(bow1, bow2);
-
-gift.position.set(0, -10, 4);
-
+const gg=new THREE.BufferGeometry();
+gg.setAttribute("position",new THREE.BufferAttribute(gp,3));gg.setAttribute("color",new THREE.BufferAttribute(gc,3));
+const pts=new THREE.Points(gg,new THREE.PointsMaterial({...additive,size:small?.13:.1,vertexColors:true,opacity:0}));
+galaxy.add(pts);
+const core=new THREE.Sprite(new THREE.SpriteMaterial({...additive,color:0xffb6e1,opacity:0}));core.scale.setScalar(4);galaxy.add(core);
+
+/* hộp quà */
+const gift=new THREE.Group(),lid=new THREE.Group();scene.add(gift);
+const bodyM=new THREE.MeshStandardMaterial({color:0xa87be8,roughness:.4}),ribM=new THREE.MeshStandardMaterial({color:0xffd5eb,roughness:.3});
+const add=(par,geo,mat,x,y,z)=>{const m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);par.add(m);return m};
+add(gift,new THREE.BoxGeometry(1.6,1.1,1.4),bodyM,0,-.55,0);
+add(gift,new THREE.BoxGeometry(.24,1.12,1.42),ribM,0,-.55,0);
+lid.position.set(0,0,-.7);gift.add(lid);
+add(lid,new THREE.BoxGeometry(1.76,.34,1.56),bodyM,0,.17,.7);
+add(lid,new THREE.BoxGeometry(.24,.36,1.58),ribM,0,.17,.7);
+const b1=add(lid,new THREE.TorusGeometry(.26,.07,10,24),ribM,-.22,.5,.7),b2=add(lid,new THREE.TorusGeometry(.26,.07,10,24),ribM,.22,.5,.7);
+b1.rotation.y=b2.rotation.y=Math.PI/2;b1.rotation.z=.7;b2.rotation.z=-.7;
+const inGlow=new THREE.Sprite(new THREE.SpriteMaterial({...additive,color:0xfff0b0,opacity:0}));inGlow.position.set(0,.1,0);inGlow.scale.setScalar(2.2);gift.add(inGlow);
 gift.scale.setScalar(0);
 
-gift.traverse(object => {
-  if(object.isMesh){
-    object.material.depthTest = false;
-    object.renderOrder = 40;
-  }
-});
-
-
-/* =================================
-   HẠT SÁNG
-================================= */
-
-const particleCount = 500;
-
-const particlePositions = [];
-
-const particleTargets = [];
-
-for(let i = 0; i < particleCount; i++){
-
-  particlePositions.push(
-    (Math.random() - .5) * 16,
-    (Math.random() - .5) * 12,
-    4
-  );
-
-  const angle = Math.random() * Math.PI * 2;
-
-  const radius = Math.random() * 1.1;
-
-  particleTargets.push(
-    Math.cos(angle) * radius,
-    Math.sin(angle) * radius,
-    4
-  );
-
+/* 11 ảnh -> 11 ngôi sao nhỏ */
+const NP=11,items=[],palette=[0xffd1ec,0xc9b8ff,0xffe9a8,0xa8d8ff,0xffc2c2],loader=new THREE.TextureLoader();
+for(let i=0;i<NP;i++){
+  const star=new THREE.Sprite(new THREE.SpriteMaterial({...additive,color:palette[i%5],opacity:0}));star.scale.setScalar(0);scene.add(star);
+  const it={i,a:i*Math.PI*2/NP,star,photo:null,asp:.75,delay:i*.15};items.push(it);
+  loader.load("anh"+(i+1)+".png",t=>{
+    t.colorSpace=THREE.SRGBColorSpace;it.asp=t.image.width/t.image.height;
+    const m=new THREE.Mesh(new THREE.PlaneGeometry(it.asp,1),new THREE.MeshBasicMaterial({map:t,transparent:true,depthWrite:false,opacity:0}));
+    m.scale.setScalar(.001);m.renderOrder=5;scene.add(m);it.photo=m;
+  },undefined,()=>{});
 }
 
-const particleGeometry = new THREE.BufferGeometry();
-
-particleGeometry.setAttribute(
-  "position",
-  new THREE.Float32BufferAttribute(particlePositions, 3)
-);
-
-const particleMaterial = new THREE.PointsMaterial({
-  color: 0xffe5ff,
-  size: .075,
-  transparent: true,
-  opacity: 0,
-  depthTest: false
-});
-
-const particles = new THREE.Points(
-  particleGeometry,
-  particleMaterial
-);
-
-particles.renderOrder = 35;
-
-galaxy.add(particles);
-
-
-/* =================================
-   TRẠNG THÁI ANIMATION
-================================= */
-
-let running = false;
-
-let animationId = null;
-
-let startTime = 0;
-
-let elapsed = 0;
-
-let completed = false;
-
-const title = document.getElementById("galaxyTitle");
-
-const message = document.getElementById("galaxyMessage");
-
-
-function resetGalaxy(){
-
-  message.classList.remove("show");
-
-  title.style.opacity = 1;
-
-  title.style.transform = "translateX(-50%)";
-
-  planet.material.opacity = 0;
-
-  planetGlow.material.opacity = 0;
-
-  ring.material.opacity = 0;
-
-  planet.scale.setScalar(1);
-
-  planetGlow.scale.setScalar(1);
-
-  ring.scale.setScalar(1);
-
-  gift.position.set(0, -10, 4);
-
-  gift.scale.setScalar(0);
-
-  particleMaterial.opacity = 0;
-
-  photos.forEach(mesh => {
-
-    mesh.scale.setScalar(0);
-
-    mesh.material.opacity = 0;
-
-  });
-
-  if(phone){
-    phone.material.opacity = 1;
-  }
-
-}
-
-
-function startGalaxy(){
-
-  if(running) return;
-
-  if(completed){
-
-    elapsed = 0;
-
-    completed = false;
-
-    resetGalaxy();
-
-  }
-
-  running = true;
-
-  startTime = performance.now() - elapsed * 1000;
-
-  animate();
-
-}
-
-
-function stopGalaxy(){
-
-  running = false;
-
-  if(animationId){
-    cancelAnimationFrame(animationId);
-  }
-
-  animationId = null;
-
-}
-
-
-window.startGalaxy = startGalaxy;
-
-window.stopGalaxy = stopGalaxy;
-
-
-/* =================================
-   ANIMATION CHÍNH
-================================= */
-
-function animate(){
-
-  if(!running) return;
-
-  animationId = requestAnimationFrame(animate);
-
-  const time = (performance.now() - startTime) / 1000;
-
-
-  /* SAO NỀN */
-
-  stars.rotation.y += .0002;
-
-  nebula.rotation.z += .0004;
-
-
-  /* ĐIỆN THOẠI */
-
-  if(phone){
-
-    const fade = 1 - THREE.MathUtils.smoothstep(time, 3, 6);
-
-    phone.material.opacity = fade;
-
-    phone.position.y = Math.sin(time * 1.5) * .18;
-
-    phone.rotation.y = Math.sin(time * .7) * .25;
-
-    phone.rotation.z = Math.sin(time) * .05;
-
-    phone.scale.setScalar(1 + Math.sin(time * 1.5) * .035);
-
-  }
-
-
-  /* HÀNH TINH */
-
-  const planetFade = THREE.MathUtils.smoothstep(time, 4, 8);
-
-  planet.material.opacity = planetFade;
-
-  planetGlow.material.opacity = planetFade * .15;
-
-  ring.material.opacity = planetFade * .85;
-
-  planet.rotation.y += .003;
-
-  planetGlow.rotation.y -= .002;
-
-  ring.rotation.z += .001;
-
-
-  /* ẢNH QUAY QUANH HÀNH TINH */
-
-  photos.forEach(mesh => {
-
-    const angle = mesh.userData.angle + time * .22;
-
-    const x = Math.cos(angle) * orbitX;
-
-    const y = Math.sin(angle) * orbitY;
-
-    /* Z luôn ở phía trước hành tinh */
-
-    const z = 4.5 + Math.sin(angle) * .25;
-
-    mesh.position.set(x, y, z);
-
-    mesh.lookAt(camera.position);
-
-    const appear = THREE.MathUtils.smoothstep(time, 5, 8);
-
-    mesh.scale.setScalar(appear);
-
-    mesh.material.opacity = appear;
-
-  });
-
-
-  /* TIÊU ĐỀ */
-
-  if(time > 5){
-
-    const fade = 1 - THREE.MathUtils.smoothstep(time, 5, 7);
-
-    title.style.opacity = fade;
-
-    title.style.transform =
-      `translate(-50%, ${-50 - (1 - fade) * 35}px)`;
-
-  }
-
-
-  /* ẢNH HỘI TỤ */
-
-  if(time > 11){
-
-    const progress = THREE.MathUtils.smoothstep(time, 11, 14);
-
-    photos.forEach(mesh => {
-
-      mesh.position.lerp(
-        new THREE.Vector3(0, 0, 4),
-        .035 * progress
-      );
-
-      mesh.scale.setScalar(1 - progress);
-
-    });
-
-    planet.scale.setScalar(1 - progress * .85);
-
-    planetGlow.scale.setScalar(1 - progress * .85);
-
-    ring.scale.setScalar(1 - progress * .85);
-
-    particleMaterial.opacity = progress;
-
-    particles.rotation.z += .008;
-
-  }
-
-
-  /* HỘP QUÀ */
-
-  if(time > 14){
-
-    const progress = THREE.MathUtils.smoothstep(time, 14, 16);
-
-    gift.position.y = -3 + progress * 3;
-
-    gift.scale.setScalar(progress);
-
-    gift.rotation.y += .008;
-
-  }
-
-
-  /* LỜI CHÚC */
-
-  if(time > 16 && !completed){
-
-    message.classList.add("show");
-
-    completed = true;
-
-  }
-
-
-  renderer.render(scene, camera);
-
-}
-
-
-/* =================================
-   RESIZE
-================================= */
-
+/* kích thước theo màn hình (điện thoại dọc / ngang) */
+let W=3,H=7,rx=2.5,ry=1.8,y0=.7,photoH=1.4,gS=1;
 function resize(){
-
-  camera.aspect = window.innerWidth / window.innerHeight;
-
-  camera.updateProjectionMatrix();
-
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
+  const w=canvas.clientWidth||innerWidth,h=canvas.clientHeight||innerHeight;
+  renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+  H=Math.tan(THREE.MathUtils.degToRad(22.5))*18;W=H*camera.aspect;
+  rx=Math.min(W*.68,6);ry=Math.min(H*.3,rx*.8);y0=H*.1;
+  photoH=Math.min(H*.2,W*.5,1.9);gS=Math.min(1.3,W*.4);
+  galaxy.position.y=y0;galaxy.scale.setScalar(Math.min(1,W/5));
 }
-
-window.addEventListener("resize", resize);
-
-</script>
-
-</body>
-</html>
-    new THREE.PlaneGeometry(1.8, 3.2),
-    material
-  );
-
-  phone.position.set(0, 0, 1);
-
-  galaxy.add(phone);
-
-});
-
-
-/* =====================================
-   10 ẢNH QUỸ ĐẠO
-===================================== */
-
-const photoGroup = new THREE.Group();
-
-galaxy.add(photoGroup);
-
-const photos = [];
-
-const orbitRadius = 3.3;
-
-for(let i = 0; i < 10; i++){
-
-  loadTexture("anh" + (i + 2) + ".png").then(texture => {
-
-    if(!texture) return;
-
-    const material = new THREE.MeshBasicMaterial({
-      map: texture,
-      side: THREE.DoubleSide,
-      transparent: true,
-      opacity: 0
-    });
-
-    const mesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(1.05, 1.35),
-      material
-    );
-
-    mesh.userData.angle = i * Math.PI * 2 / 10;
-
-    mesh.userData.index = i;
-
-    mesh.scale.setScalar(0);
-
-    photoGroup.add(mesh);
-
-    photos.push(mesh);
-
-  });
-
-}
-
-
-/* =====================================
-   HỘP QUÀ
-===================================== */
-
-const gift = new THREE.Group();
-
-galaxy.add(gift);
-
-
-const box = new THREE.Mesh(
-  new THREE.BoxGeometry(1.6, 1.25, 1.35),
-  new THREE.MeshStandardMaterial({
-    color: 0xa87be8,
-    roughness: .3,
-    metalness: .25
-  })
-);
-
-gift.add(box);
-
-
-const ribbonMaterial = new THREE.MeshStandardMaterial({
-  color: 0xffd5eb,
-  metalness: .2
-});
-
-
-const ribbon1 = new THREE.Mesh(
-  new THREE.BoxGeometry(1.7, .18, 1.45),
-  ribbonMaterial
-);
-
-const ribbon2 = new THREE.Mesh(
-  new THREE.BoxGeometry(.2, 1.3, 1.45),
-  ribbonMaterial
-);
-
-gift.add(ribbon1, ribbon2);
-
-
-gift.position.set(0, -10, 0);
-
-gift.scale.setScalar(0);
-
-
-/* NƠ QUÀ */
-
-const bow1 = new THREE.Mesh(
-  new THREE.TorusGeometry(.32, .09, 12, 32, Math.PI * 1.8),
-  ribbonMaterial
-);
-
-const bow2 = bow1.clone();
-
-bow1.position.set(-.2, .72, 0);
-
-bow2.position.set(.2, .72, 0);
-
-bow1.rotation.z = .7;
-
-bow2.rotation.z = -2.4;
-
-gift.add(bow1, bow2);
-
-
-/* =====================================
-   SAO HỘI TỤ
-===================================== */
-
-const particlePositions = [];
-
-const particleTargets = [];
-
-const particleCount = 500;
-
-for(let i = 0; i < particleCount; i++){
-
-  particlePositions.push(
-    (Math.random() - .5) * 18,
-    (Math.random() - .5) * 12,
-    (Math.random() - .5) * 10
-  );
-
-  const angle = Math.random() * Math.PI * 2;
-
-  const radius = Math.random() * 1.4;
-
-  particleTargets.push(
-    Math.cos(angle) * radius,
-    Math.sin(angle) * radius,
-    0
-  );
-
-}
-
-const particleGeometry = new THREE.BufferGeometry();
-
-particleGeometry.setAttribute(
-  "position",
-  new THREE.Float32BufferAttribute(particlePositions, 3)
-);
-
-const particleMaterial = new THREE.PointsMaterial({
-  color: 0xffe5ff,
-  size: .07,
-  transparent: true,
-  opacity: 0
-});
-
-const particles = new THREE.Points(
-  particleGeometry,
-  particleMaterial
-);
-
-galaxy.add(particles);
-
-
-/* =====================================
-   TRẠNG THÁI
-===================================== */
-
-let running = false;
-
-let animationId = null;
-
-let startTime = 0;
-
-let elapsed = 0;
-
-let completed = false;
-
-const title = document.getElementById("galaxyTitle");
-
-const message = document.getElementById("galaxyMessage");
-
-
-function startGalaxy(){
-
-  if(running) return;
-
-  running = true;
-
-  if(completed){
-
-    elapsed = 0;
-
-    completed = false;
-
-    message.classList.remove("show");
-
-    title.style.opacity = 1;
-
-    title.style.transform = "translateX(-50%)";
-
-    planetMaterial.opacity = 0;
-
-    surface.material.opacity = 0;
-
-    ring.material.opacity = 0;
-
-    planet.scale.setScalar(1);
-
-    ring.scale.setScalar(1);
-
-    gift.position.set(0, -10, 0);
-
-    gift.scale.setScalar(0);
-
-    particleMaterial.opacity = 0;
-
-    photos.forEach(mesh => {
-      mesh.scale.setScalar(0);
-      mesh.material.opacity = 0;
-    });
-
-  }
-
-  startTime = performance.now() - elapsed * 1000;
-
-  animate();
-
-}
-
-
-function stopGalaxy(){
-
-  running = false;
-
-  if(animationId){
-    cancelAnimationFrame(animationId);
-  }
-
-  animationId = null;
-
-}
-
-
-window.startGalaxy = startGalaxy;
-
-window.stopGalaxy = stopGalaxy;
-
-
-/* =====================================
-   ANIMATION
-===================================== */
-
-const clock = new THREE.Clock();
-
-function animate(){
-
-  if(!running) return;
-
-  animationId = requestAnimationFrame(animate);
-
-  const time = (performance.now() - startTime) / 1000;
-
-  elapsed = time;
-
-  /* Sao nền */
-
-  stars.rotation.y += .0002;
-
-  nebula.rotation.z += .0004;
-
-
-  /* Điện thoại */
-
-  if(phone){
-
-    const phoneFade = 1 - THREE.MathUtils.smoothstep(time, 2, 6);
-
-    phone.material.opacity = phoneFade;
-
-    phone.position.y = Math.sin(time * 1.5) * .18;
-
-    phone.rotation.y = Math.sin(time * .7) * .3;
-
-    phone.rotation.z = Math.sin(time) * .07;
-
-    phone.scale.setScalar(1 + Math.sin(time * 1.5) * .035);
-
-  }
-
-
-  /* Hành tinh xuất hiện */
-
-  const planetFade = THREE.MathUtils.smoothstep(time, 3, 7);
-
-  planetMaterial.opacity = planetFade;
-
-  surface.material.opacity = planetFade * .15;
-
-  ring.material.opacity = planetFade * .85;
-
-  planet.rotation.y += .003;
-
-  surface.rotation.y -= .002;
-
-  ring.rotation.z += .001;
-
-
-  /* Ảnh quay quanh hành tinh */
-
-  photos.forEach(mesh => {
-
-    const angle = mesh.userData.angle + time * .25;
-
-    const radius = window.innerWidth < 600 ? 2.8 : orbitRadius;
-
-    const x = Math.cos(angle) * radius;
-
-    const z = Math.sin(angle) * radius * .45;
-
-    const y = Math.sin(angle * 2) * .3;
-
-    mesh.position.set(x, y, z);
-
-    mesh.lookAt(camera.position);
-
-    const appear = THREE.MathUtils.smoothstep(time, 4, 8);
-
-    const scale = window.innerWidth < 600 ? .78 : 1;
-
-    mesh.scale.setScalar(appear * scale);
-
-    mesh.material.opacity = appear;
-
-  });
-
-
-  photoGroup.rotation.z = Math.sin(time * .2) * .08;
-
-
-  /* Tiêu đề biến mất */
-
-  if(time > 5){
-
-    const fade = 1 - THREE.MathUtils.smoothstep(time, 5, 7);
-
-    title.style.opacity = fade;
-
-    title.style.transform =
-      `translate(-50%, ${-50 - (1 - fade) * 40}px)`;
-
-  }
-
-
-  /* Ảnh hội tụ */
-
-  if(time > 11){
-
-    const progress = THREE.MathUtils.smoothstep(time, 11, 14);
-
-    photos.forEach(mesh => {
-
-      mesh.position.lerp(
-        new THREE.Vector3(0, 0, 0),
-        .035 * progress
-      );
-
-      mesh.scale.setScalar(
-        (window.innerWidth < 600 ? .78 : 1) * (1 - progress)
-      );
-
-    });
-
-    planet.scale.setScalar(1 - progress * .85);
-
-    ring.scale.setScalar(1 - progress * .85);
-
-    particleMaterial.opacity = progress;
-
-    particles.rotation.y += .01;
-
-  }
-
-
-  /* Hạt sáng tụ thành ngôi sao */
-
-  if(time > 11){
-
-    const progress = THREE.MathUtils.smoothstep(time, 11, 14);
-
-    const positions = particles.geometry.attributes.position;
-
-    for(let i = 0; i < particleCount; i++){
-
-      const index = i * 3;
-
-      positions.array[index] +=
-        (particleTargets[index] - positions.array[index]) * .025 * progress;
-
-      positions.array[index + 1] +=
-        (particleTargets[index + 1] - positions.array[index + 1]) * .025 * progress;
-
-      positions.array[index + 2] +=
-        (particleTargets[index + 2] - positions.array[index + 2]) * .025 * progress;
-
+addEventListener("resize",resize);addEventListener("orientationchange",()=>setTimeout(resize,300));
+
+/* animation */
+const sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
+let running=false,raf=0,t0=0;
+const tgt=new THREE.Vector3();
+function frame(now){
+  if(!running)return;raf=requestAnimationFrame(frame);
+  const t=(now-t0)/1000,conv=sm(10,13,t);
+  const fadeIn=sm(0,2,t);
+  pts.material.opacity=fadeIn;core.material.opacity=.85*fadeIn;pts.rotation.y=t*.14;
+  title.style.opacity=1-sm(4,6,t);
+
+  const ga=sm(11,13,t);
+  gift.scale.setScalar(gS*ga);gift.position.set(0,-H*.5-(1-ga)*1.2,1);
+  tgt.set(0,gift.position.y+.3*gS,1.5);
+  const open=sm(13.5,15,t)*(1-sm(17.8,18.8,t));
+  lid.rotation.x=-open*1.25;
+  inGlow.material.opacity=(.15+.6*sm(14,17.5,t))*ga*(.8+.2*Math.sin(t*6));
+  gift.rotation.z=t>18?Math.sin((t-18)*11)*.12*(1-sm(18,19.2,t)):0;
+
+  for(const it of items){
+    const ang=it.a+Math.min(t,13)*.38,rr=1-.15*conv;
+    let x=Math.cos(ang)*rx*rr,y=y0+Math.sin(ang)*ry*rr,z=2+Math.sin(ang)*1.2;
+    const appear=sm(1.5+it.i*.15,3.5+it.i*.15,t),sc=appear*(1-conv);
+    if(it.photo){
+      const s=photoH*sc*Math.min(1,W*.3/(it.asp*photoH))*(.88+.12*Math.sin(ang))+.001;
+      it.photo.position.set(x,y,z);it.photo.scale.set(s*it.asp,s,1);it.photo.material.opacity=sc;
     }
-
-    positions.needsUpdate = true;
-
+    const q=sm(13+it.delay,16+it.delay,t);
+    const sx=x+(tgt.x-x)*q,sy=y+(tgt.y-y)*q+Math.sin(q*Math.PI)*1.3,sz=z+(tgt.z-z)*q;
+    it.star.position.set(sx,sy,sz);
+    it.star.scale.setScalar(Math.max(.001,.75*conv*(1-.9*q)*(1+.18*Math.sin(t*5+it.i))));
+    it.star.material.opacity=conv*(q<1?1:0);
   }
-
-
-  /* Hộp quà xuất hiện */
-
-  if(time > 14){
-
-    const progress = THREE.MathUtils.smoothstep(time, 14, 16);
-
-    gift.position.y = -3 + progress * 3;
-
-    gift.scale.setScalar(progress);
-
-    gift.rotation.y += .008;
-
-  }
-
-
-  /* Lời chúc */
-
-  if(time > 16 && !completed){
-
-    message.classList.add("show");
-
-    completed = true;
-
-  }
-
-
-  renderer.render(scene, camera);
-
+  if(t>19&&nextBtn.hidden&&!msg.classList.contains("show"))nextBtn.hidden=false;
+  renderer.render(scene,camera);
 }
-
-
-/* =====================================
-   RESIZE
-===================================== */
-
-function resize(){
-
-  camera.aspect = window.innerWidth / window.innerHeight;
-
-  camera.updateProjectionMatrix();
-
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
-
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-}
-
-window.addEventListener("resize", resize);
-
+window.startGalaxy=()=>{
+  if(running)return;resize();
+  nextBtn.hidden=true;msg.classList.remove("show");title.style.opacity=1;
+  running=true;t0=performance.now();raf=requestAnimationFrame(frame);
+};
+window.stopGalaxy=()=>{running=false;cancelAnimationFrame(raf)};
+window.showWish=()=>{nextBtn.hidden=true;msg.classList.add("show")};
+resize();
 </script>
-
 </body>
 </html>
