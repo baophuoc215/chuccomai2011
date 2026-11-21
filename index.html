@@ -64,35 +64,26 @@
   </section>
 </div>
 
-<!-- ============ PHẦN 2: GALAXY ============ -->
+<!-- ============ GALAXY (cùng file, hiện khi bấm Tiếp theo) ============ -->
 <div class="page" id="part2" hidden>
   <section class="galaxy-section">
     <canvas id="galaxy"></canvas>
-
     <div class="galaxy-title" id="gTitle">
       <span>CLASS 6A2 PRESENTS</span>
       <h2>Our Universe</h2>
       <p>Một vũ trụ nhỏ dành tặng cô Mai</p>
     </div>
-
   </section>
 </div>
+
 </main>
 
 <div class="hud" id="hud" hidden>
-    <div class="galaxy-message" id="gMsg">
-      <div class="gift-icon">🎁</div>
-      <span class="message-label">20 · 11 · 2026</span>
-      <h2>Chúc mừng ngày Nhà giáo Việt Nam!</h2>
-      <p>Cảm ơn cô Mai vì đã luôn yêu thương, dìu dắt và đồng hành cùng chúng em.<br><br>Chúc cô luôn mạnh khỏe, hạnh phúc và giữ mãi ngọn lửa nhiệt huyết với nghề.</p>
-      <strong>TẬP THỂ LỚP 6A2 ❤️</strong>
-      <button class="btn glass g-replay" id="replay" type="button">↻ Xem lại</button>
-    </div>
-
     <div class="g-hint" id="gHint">✨ Chạm, kéo hoặc chụm hai ngón để chơi với sao</div>
     <button class="btn glass g-back" id="back" type="button" aria-label="Quay lại">←</button>
     <button class="btn glass g-next" id="gNext" type="button" hidden>Tiếp theo ✨</button>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 <script>
@@ -124,8 +115,6 @@ function go(from,to){
 }
 $("next").addEventListener("click",function(){go(part1,part2)});
 $("back").addEventListener("click",function(){go(part2,part1)});
-$("gNext").addEventListener("click",function(){window.showWish&&window.showWish()});
-$("replay").addEventListener("click",function(){window.stopGalaxy();window.startGalaxy()});
 reveal(part1);
 
 /* Bóng bay (Lottie): xuất hiện khi cuộn tới "Tiếp theo" */
@@ -146,7 +135,7 @@ new IntersectionObserver(function(es){es.forEach(function(e){
 <script type="module">
 import * as THREE from "three";
 const $=id=>document.getElementById(id);
-const canvas=$("galaxy"),title=$("gTitle"),msg=$("gMsg"),nextBtn=$("gNext");
+const canvas=$("galaxy"),title=$("gTitle"),nextBtn=$("gNext");
 const small=innerWidth<700;
 
 const renderer=new THREE.WebGLRenderer({canvas,antialias:!small,alpha:true});
@@ -258,7 +247,7 @@ function frame(now){
     it.star.scale.setScalar(Math.max(.001,.75*conv*(1-.9*q)*(1+.18*Math.sin(t*5+it.i))));
     it.star.material.opacity=conv*(q<1?1:0);
   }
-  if(t>19&&nextBtn.hidden&&!msg.classList.contains("show"))nextBtn.hidden=false;
+  if(t>19&&nextBtn.hidden)nextBtn.hidden=false;
   updSparks(dt);renderer.render(scene,camera);
 }
 /* ===== TƯƠNG TÁC: chạm = pháo sao, kéo = xoay thiên hà, chụm/cuộn = zoom ===== */
@@ -294,11 +283,15 @@ canvas.addEventListener("wheel",e=>{zoom=clampZ(zoom*(e.deltaY>0?.95:1.05))},{pa
 
 window.startGalaxy=()=>{
   if(running)return;resize();
-  nextBtn.hidden=true;msg.classList.remove("show");title.style.opacity=1;
+  nextBtn.hidden=true;title.style.opacity=1;
   running=true;t0=last=performance.now();yaw=yv=0;tilt=1.05;zoom=1;raf=requestAnimationFrame(frame);
 };
 window.stopGalaxy=()=>{running=false;cancelAnimationFrame(raf)};
-window.showWish=()=>{nextBtn.hidden=true;msg.classList.add("show")};
+$("gNext").addEventListener("click",()=>{
+  try{sessionStorage.setItem("bgmTime",bgm.currentTime);sessionStorage.setItem("bgmOn",bgm.paused?"0":"1")}catch(e){}
+  document.body.classList.add("leaving");
+  setTimeout(()=>{location.href="part2.html"},500);
+});
 resize();
 </script>
 </body>
